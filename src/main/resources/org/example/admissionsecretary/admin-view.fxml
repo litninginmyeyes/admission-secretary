@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.admissionsecretary.AdminController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Панель администратора" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <TabPane VBox.vgrow="ALWAYS">
+
+        <Tab text="Списки" closable="false">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                </padding>
+
+                <Label text="Создать новый список" style="-fx-font-weight: bold;"/>
+
+                <HBox spacing="10.0">
+                    <TextField fx:id="listNameField" promptText="Название (Приём 2025)" HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="specialityField" promptText="Специальность" HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <HBox spacing="10.0">
+                    <TextField fx:id="totalPlacesField" promptText="Всего мест" HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="targetPlacesField" promptText="Целевые места" HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="priorityPlacesField" promptText="Льготные места" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <HBox spacing="10.0">
+                    <Button text="Создать список" onAction="#createList"/>
+                    <Button text="Удалить выбранный" onAction="#deleteList"/>
+                </HBox>
+
+                <Label fx:id="listMessageLabel"/>
+
+                <TableView fx:id="listsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="listIdCol" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="listNameCol" text="Название" prefWidth="150"/>
+                        <TableColumn fx:id="listSpecialityCol" text="Специальность" prefWidth="200"/>
+                        <TableColumn fx:id="listTotalCol" text="Всего" prefWidth="70"/>
+                        <TableColumn fx:id="listTargetCol" text="Целевые" prefWidth="80"/>
+                        <TableColumn fx:id="listPriorityCol" text="Льготные" prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Абитуриенты" closable="false">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                </padding>
+
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <Label text="Список:"/>
+                    <ComboBox fx:id="filterListComboBox" onAction="#loadApplicants"/>
+                    <Button text="Удалить выбранного" onAction="#deleteApplicant"/>
+                    <Button text="Статистика" onAction="#showStatistics"/>
+                </HBox>
+
+                <Label fx:id="applicantMessageLabel"/>
+                <Label fx:id="statisticsLabel" style="-fx-font-size: 12px;"/>
+
+                <TableView fx:id="applicantsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="appIdCol" text="ID" prefWidth="40"/>
+                        <TableColumn fx:id="appNameCol" text="ФИО" prefWidth="180"/>
+                        <TableColumn fx:id="appEmailCol" text="Email" prefWidth="150"/>
+                        <TableColumn fx:id="appTotalCol" text="Балл" prefWidth="60"/>
+                        <TableColumn fx:id="appTargetCol" text="Целевой" prefWidth="70"/>
+                        <TableColumn fx:id="appPriorityCol" text="Льготник" prefWidth="70"/>
+                        <TableColumn fx:id="appStatusCol" text="Статус" prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

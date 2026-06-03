@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.admissionsecretary.ApplicantController">
+    <fx:define>
+        <ToggleGroup fx:id="categoryGroup"/>
+    </fx:define>
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+    </padding>
+
+    <Label text="Подача заявления" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <Label text="ФИО"/>
+    <TextField fx:id="fullNameField" promptText="Иванов Иван Иванович"/>
+
+    <Label text="Email"/>
+    <TextField fx:id="emailField" promptText="example@mail.ru"/>
+
+    <Label text="Специальность"/>
+    <ComboBox fx:id="listComboBox" maxWidth="Infinity"/>
+
+    <Label text="ЕГЭ Математика (0-100)"/>
+    <TextField fx:id="egeMathField" promptText="0"/>
+
+    <Label text="ЕГЭ Русский язык (0-100)"/>
+    <TextField fx:id="egeRussianField" promptText="0"/>
+
+    <Label text="ЕГЭ Профильный предмет (0-100)"/>
+    <TextField fx:id="egeSubjectField" promptText="0"/>
+
+    <Label text="Баллы за достижения (0-10)"/>
+    <TextField fx:id="achievementsField" promptText="0"/>
+
+    <Label text="Баллы за портфолио (0-10)"/>
+    <TextField fx:id="portfolioField" promptText="0"/>
+
+    <RadioButton fx:id="noneRadio" text="Обычный участник" toggleGroup="$categoryGroup" selected="true"/>
+    <RadioButton fx:id="targetRadio" text="Целевой набор" toggleGroup="$categoryGroup"/>
+    <RadioButton fx:id="priorityRadio" text="Льготник" toggleGroup="$categoryGroup"/>
+
+    <Label fx:id="messageLabel" style="-fx-text-fill: red;"/>
+
+    <Button text="Подать заявление" onAction="#submitForm"
+            maxWidth="Infinity"
+            style="-fx-font-size: 14px;"/>
+</VBox>
