@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Модульные тесты для класса ApplicantService.
