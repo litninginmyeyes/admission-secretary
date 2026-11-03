@@ -6,8 +6,8 @@ import javax.mail.internet.*;
 
 public class EmailService {
 
-    private static final String FROM_EMAIL = "ddddddeniiiiiiiiis@gmail.com";
-    private static final String PASSWORD   = "stgslxivhmjnyxpx";
+    private static final String FROM_EMAIL = Config.get("mail.user");
+    private static final String PASSWORD   = Config.get("mail.password");;
 
     private static Session getSession() {
         Properties props = new Properties();

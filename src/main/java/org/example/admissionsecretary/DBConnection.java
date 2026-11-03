@@ -5,8 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String ConString =
-            "jdbc:sqlserver://localhost:49891;databaseName=AdmissionDB;user=admission_user;password=Admission@123;trustServerCertificate=true;";
+    private static final String ConString = Config.get("db.url");
 
     private static Connection connection = null;
 
